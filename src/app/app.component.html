@@ -1,0 +1,38 @@
+<form [formGroup]="form">
+  <mat-form-field appearance="legacy">
+    <mat-label>Digite o nome do personagem</mat-label>
+    <input matInput placeholder="Iron Man" formControlName="name">
+  </mat-form-field>
+</form>
+
+<div class="container-fluid">
+  <div class="row" *ngIf="character">
+    <div class="col-12">
+      <h1>{{ character.name }}</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <p>
+          Descrição: {{character.description}}
+        </p>
+      </div>
+
+      <div class="col-6">
+        <img class="img-fluid" [src]="getImg(character)">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <mat-list>
+          <div mat-subheader>HQ's</div>
+          <mat-list-item *ngFor="let comic of character?.comics?.items">
+            <div mat-line>{{comic.name}}</div>
+            <div mat-line> {{comic.resourceURI}} </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>
