@@ -24,12 +24,32 @@
     </div>
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-4">
         <mat-list>
           <div mat-subheader>HQ's</div>
           <mat-list-item *ngFor="let comic of character?.comics?.items">
             <div mat-line>{{comic.name}}</div>
             <div mat-line> {{comic.resourceURI}} </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <div class="col-4">
+        <mat-list>
+          <div mat-subheader>Histórias</div>
+          <mat-list-item *ngFor="let comic of character?.stories?.items">
+            <div mat-line>{{comic.name}}</div>
+            <a mat-line [href]="comic.resourceURI"> AQUI É O TEXT0 {{comic.resourceURI}} </a>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <div class="col-4">
+        <mat-list>
+          <div mat-subheader>Séries</div>
+          <mat-list-item *ngFor="let comic of character?.series?.items">
+            <div mat-line>{{comic.name}}</div>
+            <a mat-line [href]="comic.resourceURI"> AQUI É O TEXT0 {{comic.resourceURI}} </a>
           </mat-list-item>
         </mat-list>
       </div>
